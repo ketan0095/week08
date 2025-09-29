@@ -132,13 +132,13 @@ jobs:
     # Build and Push Docker image for Product Service
     - name: Build and Push Product Service Image
       run: |
-        docker build -t ${{ env.ACR_LOGIN_SERVER }}/product_service:latest ./backend/product_service/
+        docker build -t ${{ env.ACR_LOGIN_SERVER }}/product_service:latest linux/amd64 ./backend/product_service/
         docker push ${{ env.ACR_LOGIN_SERVER }}/product_service:latest
 
     # Build and Push Docker image for Order Service
     - name: Build and Push Order Service Image
       run: |
-        docker build -t ${{ env.ACR_LOGIN_SERVER }}/order_service:latest ./backend/order_service/
+        docker build -t ${{ env.ACR_LOGIN_SERVER }}/order_service:latest linux/amd64 ./backend/order_service/
         docker push ${{ env.ACR_LOGIN_SERVER }}/order_service:latest
 
     # Logout from Azure for security (runs even if image push fails)
